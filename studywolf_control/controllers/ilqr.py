@@ -400,6 +400,8 @@ class Control(lqr.Control):
         # apply the control signal
         self.arm.apply_torque(u, self.arm.dt)
         # get the system state from the arm
+        # zx, q list: a list of the joint angles
+        # zx, dq list: a list of the joint velocities
         xnext = np.hstack([np.copy(self.arm.q), 
                            np.copy(self.arm.dq)])
         # calculate the change in state
@@ -426,6 +428,10 @@ class Control(lqr.Control):
         tN = U.shape[0]             # zx, number of time steps
         num_states = x0.shape[0]
         dt = self.arm.dt            # zx, time step
+        
+        # zx, In these simulations the system is simulating at .01 time step, 
+        # and I gave it 100 time steps to reach the target. 
+        # What if I give it only 50 time steps?
 
         X = np.zeros((tN, num_states))
         X[0] = x0
