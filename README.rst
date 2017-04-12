@@ -36,6 +36,8 @@ To run the basic control code, from the base directory::
 
    python run.py ARM CONTROL TASK
    
+   python run.py arm2 ilqr reach
+   
 Where you can find the arm options in the Arm directory subfolders (arm1, arm1_python, arm2, arm2_python, arm2_python_todorov, arm3),the control types available are in the controllers subfolder (gc, osc, lqr, ilqr, dmp, trace), and the tasks are those listed in the Task directory (follow_mouse, postural, random_movements, reach, write).
 
 There are also a bunch of options, browse through the run.py header code to find them all!
