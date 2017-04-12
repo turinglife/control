@@ -423,9 +423,9 @@ class Control(lqr.Control):
         x0 np.array: the initial state of the system
         U np.array: the control sequence to apply
         """ 
-        tN = U.shape[0]
+        tN = U.shape[0]             # zx, number of time steps
         num_states = x0.shape[0]
-        dt = self.arm.dt
+        dt = self.arm.dt            # zx, time step
 
         X = np.zeros((tN, num_states))
         X[0] = x0
